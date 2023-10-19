@@ -1,9 +1,24 @@
 package com.example.assignment4_demo;
 
-public class Random {
-    long id;
-    String data;
+import jakarta.persistence.*;
+import lombok.Data;
 
+@Data
+@Entity
+@Table(name= Random.TABLE_NAME)
+public class Random {
+
+    public static final String TABLE_NAME = "RANDOM";
+    @Id
+    @GeneratedValue(generator = TABLE_NAME + "_GENERATOR")
+    @SequenceGenerator(
+            name = TABLE_NAME + "_GENERATOR",
+            sequenceName = TABLE_NAME + "_SEQUENCE"
+    )
+    @Column(name = "RANDOM_ID")
+    long id;
+    @Column(name = "DATA")
+    String data;
     public void setID(long id) {
         this.id = id;
     }
