@@ -10,18 +10,21 @@ import java.util.Map;
 @RestController
 public class RandomController {
     @Autowired
-    JdbcTemplate jdbcTemplate;
+    private RandomService rS;
     @GetMapping(value = "/generate_random")
     public String generateRandom() {
     int x = (int)(Math.random() * 1000);
     String result = Integer.toString(x);
-    String insertSql = "INSERT INTO random_data (data) VALUES (?)";
-    jdbcTemplate.update(insertSql, result);
+    rS.saveRandom(result);
+    //String insertSql = "INSERT INTO random_data (data) VALUES (?)";
+    //jdbcTemplate.update(insertSql, result);
+
     return result;
     }
     @GetMapping(value = "/show_random")
     public List<String> showRandom() {
-            String sql = "SELECT * FROM random_data";
+
+            /*String sql = "SELECT * FROM random_data";
             List<Random> randomers = new ArrayList<>();
             List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql);
             List<String> truelist = new ArrayList<>();
@@ -31,7 +34,7 @@ public class RandomController {
                 obj.setData(row.get("DATA").toString());
                 randomers.add(obj);
                 truelist.add(obj.getData());
-            }
-            return truelist;
+            }*/
+            return rS.findAllValues();
         }
     }

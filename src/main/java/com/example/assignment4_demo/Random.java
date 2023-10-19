@@ -19,6 +19,14 @@ public class Random {
     long id;
     @Column(name = "DATA")
     String data;
+    public Random (String d) {
+        data = d;
+    }
+
+    public Random() {
+
+    }
+
     public void setID(long id) {
         this.id = id;
     }
