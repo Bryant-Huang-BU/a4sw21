@@ -45,19 +45,19 @@ public class Movie {
         this.genres = genres;
     }
 
-    public String getMovieYear() {
+    public int getMovieYear() {
         return movieYear;
     }
 
-    public void setMovieYear(String movieYear) {
+    public void setMovieYear(int movieYear) {
         this.movieYear = movieYear;
     }
 
-    public String getRottenTomatoesScore() {
+    public int getRottenTomatoesScore() {
         return rottenTomatoesScore;
     }
 
-    public void setRottenTomatoesScore(String rottenTomatoesScore) {
+    public void setRottenTomatoesScore(int rottenTomatoesScore) {
         this.rottenTomatoesScore = rottenTomatoesScore;
     }
 
@@ -70,12 +70,12 @@ public class Movie {
     }
 
     @Column(name = "MOVIEYEAR")
-    String movieYear;
+    int movieYear;
     @Column(name = "ROTTENTOMATOESSCORE")
-    String rottenTomatoesScore;
+    int rottenTomatoesScore;
     @Column(name = "LEADSTUDIO")
     String leadStudio;
-    public Movie(String title, String genres, String movieYear, String score, String leadStudio) {
+    public Movie(String title, String genres, int movieYear, int score, String leadStudio) {
         this.title = title;
         this.genres = genres;
         this.movieYear = movieYear;
@@ -85,9 +85,5 @@ public class Movie {
 
     public Movie() {
 
-    }
-
-    public void setScore(String score) {
-        this.rottenTomatoesScore = score;
     }
 }

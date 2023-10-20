@@ -1,36 +1,22 @@
 package movies_backend;
 
-public class DTO {
+import lombok.Getter;
 
-    public String getTitle() {
-        return title;
-    }
+public class DTO {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public String getGenres() {
-        return genres;
     }
 
     public void setGenres(String genres) {
         this.genres = genres;
     }
 
-    public String getMovieYear() {
-        return movieYear;
-    }
-
-    public void setMovieYear(String movieYear) {
+    public void setMovieYear(int movieYear) {
         this.movieYear = movieYear;
     }
 
-    public String getGetRottenTomatoesScore() {
-        return getRottenTomatoesScore;
-    }
-
-    public void setGetRottenTomatoesScore(String getRottenTomatoesScore) {
+    public void setGetRottenTomatoesScore(int getRottenTomatoesScore) {
         this.getRottenTomatoesScore = getRottenTomatoesScore;
     }
 
@@ -42,10 +28,31 @@ public class DTO {
         this.leadStudio = leadStudio;
     }
 
+    @Getter
     String title;
+    @Getter
     String genres;
-    String movieYear;
-    String getRottenTomatoesScore;
+    @Getter
+    int movieYear;
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getGenres() {
+        return genres;
+    }
+
+    public int getMovieYear() {
+        return movieYear;
+    }
+
+    public int getGetRottenTomatoesScore() {
+        return getRottenTomatoesScore;
+    }
+
+    @Getter
+    int getRottenTomatoesScore;
     String leadStudio;
 
     public long getId() {
